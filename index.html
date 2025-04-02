@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KahitSan | Budget-Friendly Co-working Space in Naga City</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <!-- Font Awesome from CDN for reliable social icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+        
+        /* Custom color variables */
+        .bg-dark {
+            background-color: #121212;
+        }
+        .bg-dark-secondary {
+            background-color: #1e1e1e;
+        }
+        .bg-gold {
+            background-color: #80570d;
+        }
+        .text-gold {
+            color: #80570d;
+        }
+        .text-gold-light {
+            color: #b38728;
+        }
+        .border-gold {
+            border-color: #80570d;
+        }
+        .hover-bg-gold:hover {
+            background-color: #80570d;
+        }
+        .hover-text-gold:hover {
+            color: #80570d;
+        }
+        .bg-gold-light {
+            background-color: #b38728;
+        }
+        
+        /* Gold gradient backgrounds - always present as base layer */
+        .bg-gradient-gold {
+            background: linear-gradient(to right, #80570d, #b38728);
+            position: relative;
+        }
+        
+        /* Background image with parallax effect (as a layer on top of gradient) */
+        .bg-image-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+        
+        /* Image within container */
+        .bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.4; /* Making the image semi-transparent */
+            z-index: 0;
+        }
+        
+        /* CSS-based parallax effect */
+        .parallax {
+            background-attachment: fixed;
+        }
+        
+        /* Fallback for mobile devices that don't support fixed backgrounds well */
+        @media (max-width: 768px) {
+            .parallax {
+                background-attachment: scroll;
+            }
+        }
+        
+        .bg-gradient-dark {
+            background: linear-gradient(to right, #121212, #1e1e1e);
+        }
+        
+        /* Component styles */
+        .feature-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(179, 135, 40, 0.2);
+        }
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            transition: transform 0.3s ease;
+            box-shadow: 0 10px 25px rgba(179, 135, 40, 0.2);
+        }
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #1e1e1e;
+            color: #b38728;
+            border: 1px solid #80570d;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        .social-icon:hover {
+            background-color: #80570d;
+            color: #e0e0e0;
+            transform: translateY(-3px);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            overflow: auto;
+            transition: all 0.3s ease;
+        }
+        .modal-content {
+            background-color: #1e1e1e;
+            margin: 10% auto;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 500px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+            transition: all 0.3s ease;
+            border: 2px solid #80570d;
+        }
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #b38728;
+            cursor: pointer;
+        }
+        .gallery-img {
+            border-radius: 10px;
+            overflow: hidden;
+            height: 250px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        .gallery-img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 25px rgba(179, 135, 40, 0.3);
+        }
+        
+        /* Custom shadows */
+        .shadow-gold {
+            box-shadow: 0 4px 12px rgba(179, 135, 40, 0.15);
+        }
+        .shadow-gold-lg {
+            box-shadow: 0 10px 25px rgba(179, 135, 40, 0.25);
+        }
+
+        /* Card with mixed content (image + text) */
+        .mixed-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .mixed-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(179, 135, 40, 0.2);
+        }
+        .mixed-card-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        .mixed-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .mixed-card:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Gold button with hover effect */
+        .btn-gold {
+            background-color: #80570d;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .btn-gold:hover {
+            background-color: #b38728;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(179, 135, 40, 0.3);
+        }
+        .btn-gold-outline {
+            border: 2px solid #80570d;
+            color: #b38728;
+            transition: all 0.3s ease;
+        }
+        .btn-gold-outline:hover {
+            background-color: #80570d;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        /* Section with background image configuration */
+        .bg-section {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .bg-section-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Text shadow for better contrast against background images */
+        .text-shadow {
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Logo styles */
+        .logo-container {
+            height: 40px;
+            display: flex;
+            align-items: center;
+        }
+        .logo-image {
+            height: 100%;
+            width: auto;
+        }
+    </style>
+</head>
+<body class="bg-dark">
+    <!-- Coming Soon Modal -->
+    <div id="comingSoonModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <div class="text-center">
+                <div class="text-5xl mb-4 text-gold-light">🚀</div>
+                <h2 class="text-2xl font-bold mb-4 text-gold-light">We're Opening Soon!</h2>
+                <p class="text-gray-400 mb-6">KahitSan Co-working Space is currently under construction. We're excited to welcome you to our community soon! Leave your contact details to be notified when we open.</p>
+                <form class="mb-4">
+                    <input type="email" placeholder="Your Email Address" class="w-full bg-dark text-white py-3 px-4 rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-gold border border-gray-700">
+                    <button type="submit" class="w-full btn-gold font-semibold py-3 rounded-md">Notify Me</button>
+                </form>
+                <div class="flex justify-center">
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header with PNG Logo -->
+    <header class="fixed w-full z-50 bg-dark-secondary shadow-md">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="logo-container">
+                <!-- PNG Logo Image - Replace with your actual logo path -->
+                <img src="/logo.png" alt="KahitSan" class="logo-image">
+            </div>
+            
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center">
+                <ul class="flex space-x-8 mr-8">
+                    <li><a href="#home" class="text-gray-300 hover:text-gold-light transition duration-300">Home</a></li>
+                    <li><a href="#features" class="text-gray-300 hover:text-gold-light transition duration-300">Features</a></li>
+                    <li><a href="#pricing" class="text-gray-300 hover:text-gold-light transition duration-300">Pricing</a></li>
+                    <li><a href="#addons" class="text-gray-300 hover:text-gold-light transition duration-300">Add-ons</a></li>
+                    <li><a href="#contact" class="text-gray-300 hover:text-gold-light transition duration-300">Contact</a></li>
+                </ul>
+                <div class="flex">
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                </div>
+            </nav>
+            
+            <!-- Mobile menu button -->
+            <div class="md:hidden">
+                <button class="text-white focus:outline-none">
+                    <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Hero Section with Background Image on top of Gradient -->
+    <section id="home" class="bg-gradient-gold bg-section pt-24 min-h-screen flex items-center">
+        <!-- Background Image Layer with Transparency -->
+        <div class="bg-image-container">
+            <div class="bg-image parallax" style="background-image: url('/api/placeholder/1920/1080');"></div>
+        </div>
+        
+        <!-- Content Layer -->
+        <div class="container mx-auto px-4 py-16 text-center relative z-1 bg-section-content">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-white text-shadow">
+                Your Budget-Friendly Workspace in Naga City
+            </h1>
+            <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto text-gray-100 text-shadow">
+                KahitSan is where productivity meets affordability. Whether you're a student cramming for exams, a freelancer on a budget, or a professional seeking a flexible workspace—we've got you covered.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a 
+                    href="#pricing" 
+                    class="bg-dark-secondary hover:bg-dark text-white font-semibold px-8 py-3 rounded-md transition duration-300 transform hover:-translate-y-1 inline-block shadow-gold"
+                >
+                    Explore Affordable Plans
+                </a>
+                <a 
+                    href="#" 
+                    onclick="openModal(); return false;"
+                    class="bg-transparent hover:bg-white hover:bg-opacity-20 text-white font-semibold px-8 py-3 rounded-md border-2 border-white hover:border-white transition duration-300 transform hover:-translate-y-1 inline-block"
+                >
+                    Join Our Community
+                </a>
+            </div>
+            
+            <!-- Feedback Button -->
+            <div class="mt-10">
+                <a 
+                    href="https://forms.google.com/feedback" 
+                    target="_blank"
+                    class="inline-flex items-center bg-dark-secondary text-gold-light hover:bg-dark font-semibold px-6 py-3 rounded-md transition duration-300 transform hover:-translate-y-1 shadow-gold"
+                >
+                    <i class="far fa-comment-dots mr-2"></i>
+                    Share Your Feedback
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features Section with Integrated Space Preview - Preserved as requested -->
+    <section id="features" class="py-20 bg-dark">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gold-light">Why Choose KahitSan</h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                    We've created a space where students and young professionals can work, study, and collaborate without the high costs.
+                </p>
+            </div>
+
+            <!-- Row 1: Feature + Image -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                <!-- Feature Card -->
+                <div class="bg-dark-secondary p-6 rounded-lg shadow-gold transition duration-300 transform hover:-translate-y-2 hover:shadow-gold-lg feature-card border border-gray-800">
+                    <div class="text-4xl mb-4 text-gold-light">💰</div>
+                    <h3 class="text-xl font-semibold mb-3 text-white">Student-Friendly Pricing</h3>
+                    <p class="text-gray-400 mb-6">Affordable rates designed specifically with students and young professionals in mind. Our pricing structure is transparent with no hidden fees.</p>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <span class="text-gold-light mr-2">✓</span>
+                            <span>Plans start at just ₱99 per day</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-gold-light mr-2">✓</span>
+                            <span>Flexible payment options</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-gold-light mr-2">✓</span>
+                            <span>No long-term commitments required</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Space Preview Image -->
+                <div class="gallery-img h-full">
+                    <img src="/api/placeholder/600/400" alt="Modern workspace with student-friendly pricing" class="w-full h-full object-cover">
+                </div>
+            </div>
+
+            <!-- Row 2: Image + Feature -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                <!-- Space Preview Image -->
+                <div class="gallery-img h-full order-last md:order-first">
+                    <img src="/api/placeholder/600/400" alt="High-speed internet workspace" class="w-full h-full object-cover">
+                </div>
+                
+                <!-- Feature Card -->
+                <div class="bg-dark-secondary p-6 rounded-lg shadow-gold transition duration-300 transform hover:-translate-y-2 hover:shadow-gold-lg feature-card border border-gray-800">
+                    <div class="text-4xl mb-4 text-gold-light">💻</div>
+                    <h3 class="text-xl font-semibold mb-3 text-white">High-Speed Internet</h3>
+                    <p class="text-gray-400 mb-6">Lightning-fast Wi-Fi that's perfect for online classes, research, and project work. Never worry about connectivity issues again.</p>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <span class="text-gold-light mr-2">✓</span>
+                            <span>Fiber-optic connection</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-gold-light mr-2">✓</span>
+                            <span>Redundant backup connections</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-gold-light mr-2">✓</span>
+                            <span>Optimized for video conferencing</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Row 3: Feature + Image -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                <!-- Feature Card -->
+                <div class="bg-dark-secondary p-6 rounded-lg shadow-gold transition duration-300 transform hover:-translate-y-2 hover:shadow-gold-lg feature-card border border-gray-800">
+                    <div class="text-4xl mb-4 text-gold-light">🔒</div>
+                    <h3 class="text-xl font-semibold mb-3 text-white">24/7 Access</h3>
+                    <p class="text-gray-400 mb-6">Study or work anytime – perfect for late-night cramming sessions or early birds. Our secure access system ensures your safety at all hours.</p>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <span class="text-gold-light mr-2">✓</span>
+                            <span>Keycard access system</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-gold-light mr-2">✓</span>
+                            <span>Security cameras for added safety</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-gold-light mr-2">✓</span>
+                            <span>Work according to your schedule</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Space Preview Image -->
+                <div class="gallery-img h-full">
+                    <img src="/api/placeholder/600/400" alt="24/7 access workspace" class="w-full h-full object-cover">
+                </div>
+            </div>
+
+            <!-- Row 4: Image + Feature -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Space Preview Image -->
+                <div class="gallery-img h-full order-last md:order-first">
+                    <img src="/api/placeholder/600/400" alt="Coffee bar and refreshments" class="w-full h-full object-cover">
+                </div>
+                
+                <!-- Feature Card -->
+                <div class="bg-dark-secondary p-6 rounded-lg shadow-gold transition duration-300 transform hover:-translate-y-2 hover:shadow-gold-lg feature-card border border-gray-800">
+                    <div class="text-4xl mb-4 text-gold-light">☕</div>
+                    <h3 class="text-xl font-semibold mb-3 text-white">Free Coffee & Water</h3>
+                    <p class="text-gray-400 mb-6">Stay refreshed and energized with complimentary beverages throughout your stay. No need to spend extra on coffee runs.</p>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <span class="text-gold-light mr-2">✓</span>
+                            <span>Premium coffee selections</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-gold-light mr-2">✓</span>
+                            <span>Purified drinking water</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-gold-light mr-2">✓</span>
+                            <span>Self-service refreshment station</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Pricing Section - Improved Marketing -->
+    <section id="pricing" class="py-20 bg-dark-secondary">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gold-light">Flexible Plans For Every Budget</h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                    Whether you're a student, freelancer, or professional, our transparent pricing ensures you only pay for what you need. All plans include high-speed Wi-Fi, complimentary coffee and water, and access to our collaborative community spaces.
+                </p>
+            </div>
+            
+            <!-- Pricing Cards with Personas -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Hot Desk Membership -->
+                <div class="bg-dark rounded-lg overflow-hidden shadow-gold transition duration-300 hover:shadow-gold-lg pricing-card border border-gray-800">
+                    <div class="p-8">
+                        <span class="text-xs uppercase tracking-wider text-gray-500 mb-1 block">Perfect for regulars</span>
+                        <h3 class="text-2xl font-bold text-white mb-4">Hot Desk</h3>
+                        <div class="mb-6">
+                            <span class="text-4xl font-bold text-gold-light">₱1,499</span>
+                            <span class="text-gray-400">/month</span>
+                        </div>
+                        <ul class="mb-8 space-y-3">
+                            <li class="flex items-center text-gray-400">
+                                <svg class="w-5 h-5 text-gold-light mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                Unlimited daily access
+                            </li>
+                            <li class="flex items-center text-gray-400">
+                                <svg class="w-5 h-5 text-gold-light mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                Consistent work routine
+                            </li>
+                            <li class="flex items-center text-gray-400">
+                                <svg class="w-5 h-5 text-gold-light mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                Best long-term value
+                            </li>
+                            <li class="flex items-center text-gray-400">
+                                <svg class="w-5 h-5 text-gold-light mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                Cubicle add-on: ₱200/mo
+                            </li>
+                        </ul>
+                        <a
+                            href="#"
+                            onclick="openModal(); return false;"
+                            class="block w-full py-3 px-6 text-center rounded-md font-semibold transition duration-300 bg-transparent hover:bg-gold text-gold-light hover:text-white border-2 border-gold hover:border-gold"
+                        >
+                            Join Our Community
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- 10-Day Pass -->
+                <div class="bg-dark rounded-lg overflow-hidden shadow-gold border-2 border-gold relative transform md:scale-105 transition duration-300 hover:shadow-gold-lg pricing-card">
+                    <div class="absolute top-0 right-0 bg-gold text-white px-4 py-1 text-sm font-semibold">
+                        Most Popular
+                    </div>
+                    <div class="p-8">
+                        <span class="text-xs uppercase tracking-wider text-gray-500 mb-1 block">Perfect for part-timers</span>
+                        <h3 class="text-2xl font-bold text-white mb-4">10-Day Pass</h3>
+                        <div class="mb-6">
+                            <span class="text-4xl font-bold text-gold-light">₱799</span>
+                            <span class="text-gray-400">/30 days</span>
+                        </div>
+                        <ul class="mb-8 space-y-3">
+                            <li class="flex items-center text-gray-400">
+                                <svg class="w-5 h-5 text-gold-light mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                10 days in a month
+                            </li>
+                            <li class="flex items-center text-gray-400">
+                                <svg class="w-5 h-5 text-gold-light mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                Flexible scheduling
+                            </li>
+                            <li class="flex items-center text-gray-400">
+                                <svg class="w-5 h-5 text-gold-light mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                Balance work & school
+                            </li>
+                            <li class="flex items-center text-gray-400">
+                                <svg class="w-5 h-5 text-gold-light mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                Cubicle add-on: ₱200
+                            </li>
+                        </ul>
+                        <a
+                            href="#"
+                            onclick="openModal(); return false;"
+                            class="block w-full py-3 px-6 text-center rounded-md font-semibold transition duration-300 bg-gold hover:bg-gold-light text-white"
+                        >
+                            Join Our Community
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Weekender Pass -->
+                <div class="bg-dark rounded-lg overflow-hidden shadow-gold transition duration-300 hover:shadow-gold-lg pricing-card border border-gray-800">
+                    <div class="p-8">
+                        <span class="text-xs uppercase tracking-wider text-gray-500 mb-1 block">Perfect for side projects</span>
+                        <h3 class="text-2xl font-bold text-white mb-4">Weekender</h3>
+                        <div class="mb-6">
+                            <span class="text-4xl font-bold text-gold-light">₱599</span>
+                            <span class="text-gray-400">/30 days</span>
+                        </div>
+                        <ul class="mb-8 space-y-3">
+                            <li class="flex items-center text-gray-400">
+                                <svg class="w-5 h-5 text-gold-light mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                Every weekend access
+                            </li>
+                            <li class="flex items-center text-gray-400">
+                                <svg class="w-5 h-5 text-gold-light mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                Perfect for side hustles
+                            </li>
+                            <li class="flex items-center text-gray-400">
+                                <svg class="w-5 h-5 text-gold-light mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                Ideal for group projects
+                            </li>
+                            <li class="flex items-center text-gray-400">
+                                <svg class="w-5 h-5 text-gold-light mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                Cubicle add-on: ₱300
+                            </li>
+                        </ul>
+                        <a
+                            href="#"
+                            onclick="openModal(); return false;"
+                            class="block w-full py-3 px-6 text-center rounded-md font-semibold transition duration-300 bg-transparent hover:bg-gold text-gold-light hover:text-white border-2 border-gold hover:border-gold"
+                        >
+                            Join Our Community
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Day Pass -->
+                <div class="bg-dark rounded-lg overflow-hidden shadow-gold transition duration-300 hover:shadow-gold-lg pricing-card border border-gray-800">
+                    <div class="p-8">
+                        <span class="text-xs uppercase tracking-wider text-gray-500 mb-1 block">Perfect for trying us out</span>
+                        <h3 class="text-2xl font-bold text-white mb-4">Day Pass</h3>
+                        <div class="mb-6">
+                            <span class="text-4xl font-bold text-gold-light">₱99</span>
+                            <span class="text-gray-400">/day</span>
+                        </div>
+                        <ul class="mb-8 space-y-3">
+                            <li class="flex items-center text-gray-400">
+                                <svg class="w-5 h-5 text-gold-light mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                No commitment
+                            </li>
+                            <li class="flex items-center text-gray-400">
+                                <svg class="w-5 h-5 text-gold-light mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                Change of environment
+                            </li>
+                            <li class="flex items-center text-gray-400">
+                                <svg class="w-5 h-5 text-gold-light mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                Last-minute needs
+                            </li>
+                            <li class="flex items-center text-gray-400">
+                                <svg class="w-5 h-5 text-gold-light mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                Cubicle add-on: ₱50/day
+                            </li>
+                        </ul>
+                        <a
+                            href="#"
+                            onclick="openModal(); return false;"
+                            class="block w-full py-3 px-6 text-center rounded-md font-semibold transition duration-300 bg-transparent hover:bg-gold text-gold-light hover:text-white border-2 border-gold hover:border-gold"
+                        >
+                            Join Our Community
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Community Section - New Section -->
+    <section class="py-20 bg-dark relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <img src="/api/placeholder/1920/1080" alt="Community Background" class="w-full h-full object-cover">
+        </div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gold-light">Join Our Community</h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                    KahitSan is more than just a workspace—it's a community of like-minded individuals who inspire and support each other.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Student Community -->
+                <div class="bg-dark-secondary p-6 rounded-lg shadow-gold transition duration-300 transform hover:-translate-y-2 hover:shadow-gold-lg border border-gray-800">
+                    <div class="text-3xl mb-4 text-gold-light">🎓</div>
+                    <h3 class="text-xl font-semibold mb-3 text-white">For Students</h3>
+                    <p class="text-gray-400 mb-4">
+                        Find a distraction-free environment to study, collaborate on group projects, or prep for exams. Meet fellow students from different schools and expand your network.
+                    </p>
+                    <div class="text-gold-light font-medium">Ideal for:</div>
+                    <ul class="mt-2 space-y-1 text-gray-400">
+                        <li>• College & university students</li>
+                        <li>• Study groups</li>
+                        <li>• Academic researchers</li>
+                        <li>• Online learners</li>
+                    </ul>
+                </div>
+                
+                <!-- Freelancer Community -->
+                <div class="bg-dark-secondary p-6 rounded-lg shadow-gold transition duration-300 transform hover:-translate-y-2 hover:shadow-gold-lg border border-gray-800">
+                    <div class="text-3xl mb-4 text-gold-light">💼</div>
+                    <h3 class="text-xl font-semibold mb-3 text-white">For Freelancers</h3>
+                    <p class="text-gray-400 mb-4">
+                        Escape the isolation of working from home. Connect with other freelancers, find potential collaborators, and enjoy a professional setting without the high costs.
+                    </p>
+                    <div class="text-gold-light font-medium">Ideal for:</div>
+                    <ul class="mt-2 space-y-1 text-gray-400">
+                        <li>• Digital nomads</li>
+                        <li>• Creative professionals</li>
+                        <li>• Remote workers</li>
+                        <li>• Independent consultants</li>
+                    </ul>
+                </div>
+                
+                <!-- Entrepreneur Community -->
+                <div class="bg-dark-secondary p-6 rounded-lg shadow-gold transition duration-300 transform hover:-translate-y-2 hover:shadow-gold-lg border border-gray-800">
+                    <div class="text-3xl mb-4 text-gold-light">🚀</div>
+                    <h3 class="text-xl font-semibold mb-3 text-white">For Entrepreneurs</h3>
+                    <p class="text-gray-400 mb-4">
+                        Launch your startup without the overhead. Connect with potential partners, brainstorm with like-minded innovators, and grow your business in an inspiring environment.
+                    </p>
+                    <div class="text-gold-light font-medium">Ideal for:</div>
+                    <ul class="mt-2 space-y-1 text-gray-400">
+                        <li>• Early-stage startups</li>
+                        <li>• Side-hustlers</li>
+                        <li>• Small business owners</li>
+                        <li>• Creative ventures</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Add-ons Section - Improved Marketing -->
+    <section id="addons" class="py-20 bg-dark-secondary">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gold-light">Productivity Boosters</h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                    Customize your experience with budget-friendly add-ons designed to enhance your productivity.
+                </p>
+            </div>
+            
+            <!-- Image and Add-ons Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Community Image -->
+                <div class="gallery-img h-full lg:col-span-1">
+                    <img src="/api/placeholder/600/800" alt="Creative professionals working together" class="w-full h-full object-cover">
+                </div>
+                
+                <!-- Add-ons Grid -->
+                <div class="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Locker Rentals -->
+                    <div class="bg-dark p-6 rounded-lg shadow-gold transition duration-300 transform hover:-translate-y-2 hover:shadow-gold-lg border border-gray-800">
+                        <div class="text-3xl mb-4 text-gold-light">🔐</div>
+                        <h3 class="text-xl font-semibold mb-3 text-white">Locker Rentals</h3>
+                        <p class="text-gray-400 mb-4">Store your belongings securely and travel lighter. Perfect for keeping textbooks, laptops, and work materials safe.</p>
+                        <ul class="mb-4 space-y-2 text-gray-400">
+                            <li class="flex items-start">
+                                <span class="text-gold-light mr-2">✓</span>
+                                <span>Monthly: ₱300</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-gold-light mr-2">✓</span>
+                                <span>Daily: ₱30</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Reserved Desk Booking -->
+                    <div class="bg-dark p-6 rounded-lg shadow-gold transition duration-300 transform hover:-translate-y-2 hover:shadow-gold-lg border border-gray-800">
+                        <div class="text-3xl mb-4 text-gold-light">📝</div>
+                        <h3 class="text-xl font-semibold mb-3 text-white">Reserved Desk</h3>
+                        <p class="text-gray-400 mb-4">Guarantee your favorite spot for important deadlines or meetings. Never worry about finding a space again.</p>
+                        <ul class="mb-4 space-y-2 text-gray-400">
+                            <li class="flex items-start">
+                                <span class="text-gold-light mr-2">✓</span>
+                                <span>Per Reservation: ₱50</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-gold-light mr-2">✓</span>
+                                <span>Monthly Unlimited: ₱500</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Printing Services -->
+                    <div class="bg-dark p-6 rounded-lg shadow-gold transition duration-300 transform hover:-translate-y-2 hover:shadow-gold-lg border border-gray-800">
+                        <div class="text-3xl mb-4 text-gold-light">🖨️</div>
+                        <h3 class="text-xl font-semibold mb-3 text-white">Printing & Scanning</h3>
+                        <p class="text-gray-400 mb-4">Handle all your document needs without leaving the workspace. Perfect for assignments, contracts, and presentations.</p>
+                        <ul class="mb-4 space-y-2 text-gray-400">
+                            <li class="flex items-start">
+                                <span class="text-gold-light mr-2">✓</span>
+                                <span>Black & White: ₱5/page</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-gold-light mr-2">✓</span>
+                                <span>Color: ₱10/page</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-gold-light mr-2">✓</span>
+                                <span>Scanning: Free for members</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Call Booth Usage -->
+                    <div class="bg-dark p-6 rounded-lg shadow-gold transition duration-300 transform hover:-translate-y-2 hover:shadow-gold-lg border border-gray-800">
+                        <div class="text-3xl mb-4 text-gold-light">📞</div>
+                        <h3 class="text-xl font-semibold mb-3 text-white">Call Booth</h3>
+                        <p class="text-gray-400 mb-4">Private space for important calls, virtual meetings, and online interviews. Make a professional impression without distractions.</p>
+                        <ul class="mb-4 space-y-2 text-gray-400">
+                            <li class="flex items-start">
+                                <span class="text-gold-light mr-2">✓</span>
+                                <span>Hourly: ₱50</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-gold-light mr-2">✓</span>
+                                <span>Monthly Unlimited: ₱300</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-gold-light mr-2">⚠️</span>
+                                <span>Limited to 1 booth, book in advance</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section with Background Image on top of Gradient -->
+    <section class="bg-gradient-gold bg-section py-20 relative overflow-hidden">
+        <!-- Background Image Layer with Transparency -->
+        <div class="bg-image-container">
+            <div class="bg-image parallax" style="background-image: url('/api/placeholder/1920/1080');"></div>
+        </div>
+        
+        <!-- Content Layer -->
+        <div class="container mx-auto px-4 text-center relative z-1 bg-section-content">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white text-shadow">Be Part of Something Special</h2>
+            <p class="text-xl mb-8 max-w-3xl mx-auto text-white text-shadow">
+                KahitSan is opening soon in Naga City! Join our founding community and be the first to experience a workspace designed for connection, creativity, and productivity—without the premium price tag.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a
+                    href="#"
+                    onclick="openModal(); return false;"
+                    class="inline-block bg-dark-secondary text-white hover:bg-dark px-8 py-3 rounded-md font-semibold transition duration-300 transform hover:-translate-y-1 shadow-gold"
+                >
+                    Join the Waiting List
+                </a>
+                <a
+                    href="https://forms.google.com/feedback" 
+                    target="_blank"
+                    class="inline-block bg-transparent hover:bg-white hover:bg-opacity-20 text-white font-semibold px-8 py-3 rounded-md border-2 border-white hover:border-white transition duration-300 transform hover:-translate-y-1"
+                >
+                    Share Your Input
+                </a>
+            </div>
+            
+            <div class="flex justify-center mt-10">
+                <a href="#" class="social-icon mx-2 bg-dark-secondary text-gold-light border-dark-secondary hover:bg-gold hover:text-white">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social-icon mx-2 bg-dark-secondary text-gold-light border-dark-secondary hover:bg-gold hover:text-white">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-icon mx-2 bg-dark-secondary text-gold-light border-dark-secondary hover:bg-gold hover:text-white">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer - Improved Marketing -->
+    <footer id="contact" class="bg-dark-secondary text-gray-400">
+        <div class="container mx-auto px-4 pt-16 pb-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <!-- About -->
+                <div class="md:col-span-2">
+                    <div class="mb-6">
+                        <img src="/api/placeholder/160/50" alt="KahitSan Logo" class="h-10 w-auto">
+                    </div>
+                    <h4 class="text-xl font-semibold mb-4 text-gold-light relative pb-2">
+                        <span class="relative z-10">About KahitSan</span>
+                        <span class="absolute bottom-0 left-0 w-12 h-0.5 bg-gold"></span>
+                    </h4>
+                    <p class="mb-4">
+                        KahitSan means "anywhere" in Filipino—because we believe productive work can happen anywhere when you have the right environment. We're Naga City's most affordable co-working space, created to serve students, freelancers, entrepreneurs, and anyone seeking a productive space without the premium price tag.
+                    </p>
+                    <div class="flex mb-6">
+                        <a href="#" class="social-icon mr-3">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon mr-3">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+                    <a href="https://forms.google.com/feedback" target="_blank" class="inline-flex items-center bg-gold hover:bg-gold-light text-white font-semibold px-6 py-2 rounded-md transition duration-300 shadow-gold">
+                        <i class="far fa-comment-dots mr-2"></i>
+                        Share Your Feedback
+                    </a>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-xl font-semibold mb-4 text-gold-light relative pb-2">
+                        <span class="relative z-10">Quick Links</span>
+                        <span class="absolute bottom-0 left-0 w-12 h-0.5 bg-gold"></span>
+                    </h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="hover:text-gold-light transition duration-300">Home</a></li>
+                        <li><a href="#features" class="hover:text-gold-light transition duration-300">Features</a></li>
+                        <li><a href="#pricing" class="hover:text-gold-light transition duration-300">Pricing</a></li>
+                        <li><a href="#addons" class="hover:text-gold-light transition duration-300">Add-ons</a></li>
+                        <li><a href="https://forms.google.com/feedback" target="_blank" class="hover:text-gold-light transition duration-300">Feedback</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-xl font-semibold mb-4 text-gold-light relative pb-2">
+                        <span class="relative z-10">Connect With Us</span>
+                        <span class="absolute bottom-0 left-0 w-12 h-0.5 bg-gold"></span>
+                    </h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <span class="mr-3"><i class="fas fa-map-marker-alt text-gold-light"></i></span>
+                            <span>Coming Soon to Naga City</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-3"><i class="fas fa-phone text-gold-light"></i></span>
+                            <span>+63 912 345 6789</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-3"><i class="fas fa-envelope text-gold-light"></i></span>
+                            <span>hello@kahitsan.co</span>
+                        </li>
+                        <li class="mt-6">
+                            <div class="text-sm text-gray-500">Questions, suggestions, or want to be notified when we open?</div>
+                            <a 
+                                href="#"
+                                onclick="openModal(); return false;"
+                                class="mt-2 inline-block text-gold-light hover:text-gold border-b border-gold-light"
+                            >
+                                Drop us a message
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="pt-8 border-t border-gray-800 text-center">
+                <p>&copy; {new Date().getFullYear()} KahitSan Co-working Space. All Rights Reserved.</p>
+                <p class="text-sm text-gray-600 mt-2">"KahitSan" — Your productive space, anywhere in Naga City.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for modals and optional enhanced parallax -->
+    <script>
+        // Modal functionality
+        function openModal() {
+            document.getElementById('comingSoonModal').style.display = 'block';
+        }
+        
+        function closeModal() {
+            document.getElementById('comingSoonModal').style.display = 'none';
+        }
+        
+        // Close the modal when clicking outside of it
+        window.onclick = function(event) {
+            let modal = document.getElementById('comingSoonModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+        
+        // Escape key to close modal
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeModal();
+            }
+        });
+        
+        // Optional enhanced parallax effect - only runs if device supports it
+        // This is not necessary for the basic parallax effect which works with CSS only
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if we're not on a mobile device - parallax can be janky on mobile
+            if (window.innerWidth > 768) {
+                // Get all parallax elements
+                const parallaxElements = document.querySelectorAll('.parallax');
+                
+                // Create a simple parallax effect on scroll
+                window.addEventListener('scroll', function() {
+                    const scrolled = window.pageYOffset;
+                    
+                    parallaxElements.forEach(function(element) {
+                        // Move the background at a slower rate than the scroll
+                        const offset = scrolled * 0.4;
+                        element.style.backgroundPositionY = `calc(50% + ${offset}px)`;
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
