@@ -272,119 +272,6 @@
             height: 100%;
             width: auto;
         }
-
-        /* Feature section styling - NEW STYLES */
-        .feature-container-alt {
-            position: relative;
-            overflow: hidden;
-            border-radius: 12px;
-            transition: all 0.3s ease;
-        }
-        
-        .feature-image-side {
-            position: relative;
-            overflow: hidden;
-            border-radius: 12px;
-            height: 400px;
-        }
-        
-        .feature-image-side:after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to right, rgba(18, 18, 18, 0.7), rgba(30, 30, 30, 0.5));
-            z-index: 1;
-        }
-        
-        .feature-content-side {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 60%;
-            padding: 2rem;
-            background-color: rgba(30, 30, 30, 0.95);
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            z-index: 2;
-        }
-        
-        .feature-container-alt:nth-child(odd) .feature-content-side {
-            left: 3rem;
-        }
-        
-        .feature-container-alt:nth-child(even) .feature-content-side {
-            right: 3rem;
-        }
-        
-        /* Enhanced animations for background images */
-        @keyframes parallax-zoom {
-            0% { transform: scale(1.05); }
-            50% { transform: scale(1.12); }
-            100% { transform: scale(1.05); }
-        }
-        
-        @keyframes parallax-pan {
-            0% { transform: translate(0, 0) scale(1.05); }
-            50% { transform: translate(-15px, 0) scale(1.05); }
-            100% { transform: translate(0, 0) scale(1.05); }
-        }
-        
-        @keyframes parallax-float {
-            0% { transform: translate(0, 0) scale(1.05); }
-            33% { transform: translate(0, -10px) scale(1.05); }
-            66% { transform: translate(0, 5px) scale(1.05); }
-            100% { transform: translate(0, 0) scale(1.05); }
-        }
-        
-        @keyframes parallax-drift {
-            0% { transform: translate(0, 0) scale(1.05); }
-            25% { transform: translate(-5px, -5px) scale(1.05); }
-            50% { transform: translate(-10px, 0) scale(1.05); }
-            75% { transform: translate(-5px, 5px) scale(1.05); }
-            100% { transform: translate(0, 0) scale(1.05); }
-        }
-        
-        /* Apply different animations to each feature */
-        .feature-container-alt:nth-child(1) .feature-image-side img {
-            animation: parallax-zoom 20s ease-in-out infinite;
-        }
-        
-        .feature-container-alt:nth-child(2) .feature-image-side img {
-            animation: parallax-pan 25s ease-in-out infinite;
-        }
-        
-        .feature-container-alt:nth-child(3) .feature-image-side img {
-            animation: parallax-float 18s ease-in-out infinite;
-        }
-        
-        .feature-container-alt:nth-child(4) .feature-image-side img {
-            animation: parallax-drift 30s ease-in-out infinite;
-        }
-        
-        /* Base styles for all feature images */
-        .feature-image-side img {
-            transform: scale(1.05);
-            transition: all 0.4s ease;
-        }
-        
-        /* Hover effect for all feature containers */
-        .feature-container-alt:hover .feature-image-side img {
-            transform: scale(1.15);
-            animation: none;
-        }
-        
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .feature-content-side {
-                width: 80%;
-                left: 50% !important;
-                right: auto !important;
-                transform: translate(-50%, -50%);
-            }
-        }
     </style>
 
     <!-- Feature-section specific css -->
@@ -396,12 +283,6 @@
             border-radius: 12px;
             transition: all 0.3s ease;
         }
-        
-        .feature-container-alt:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(179, 135, 40, 0.3);
-        }
-        
         .feature-image-side {
             position: relative;
             overflow: hidden;
