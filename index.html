@@ -990,7 +990,7 @@
             
             <!-- Copyright -->
             <div class="pt-8 border-t border-gray-800 text-center">
-                <p>&copy; {new Date().getFullYear()} KahitSan Co-working Space. All Rights Reserved.</p>
+                <p>&copy; <span id="copy_year"></span> KahitSan Co-working Space. All Rights Reserved.</p>
                 <p class="text-sm text-gray-600 mt-2">"KahitSan" — Your productive space, anywhere in Naga City.</p>
             </div>
         </div>
@@ -1041,6 +1041,9 @@
                     });
                 });
             }
+            
+            // Update the copyright year
+            document.querySelector("#copy_year").html(new Date().getFullYear());
         });
     </script>
 </body>
