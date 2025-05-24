@@ -26,7 +26,9 @@ jobs:
         run: npm ci
 
       - name: Install Tailwind CLI
-        run: npm install -D tailwindcss
+        run: |
+          npm install -D tailwindcss @tailwindcss/cli
+          npx tailwindcss init
 
       - name: Build the site
         run: npm run build

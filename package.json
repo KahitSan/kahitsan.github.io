@@ -37,6 +37,7 @@
   "homepage": "https://github.com/KahitSan/kahitsan.github.io#readme",
   "devDependencies": {
     "@11ty/eleventy": "^3.1.0",
+    "@tailwindcss/cli": "^4.1.7",
     "autoprefixer": "^10.4.21",
     "chokidar": "^3.6.0",
     "concurrently": "^9.1.2",
