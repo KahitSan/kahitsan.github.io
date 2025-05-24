@@ -21,8 +21,7 @@
     {% set cssFile = '/css/' + routeName + '.css' %}
     
     <!-- Load route-specific optimized CSS -->
-    <link rel="preload" href="{{ cssFile }}" as="style" onload="this.onload=null;this.rel='stylesheet';document.body.classList.add('loaded')">
-    <noscript><link rel="stylesheet" href="{{ cssFile }}"></noscript>
+    <link rel="stylesheet" href="{{ cssFile }}">
 
     {# <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet"> #}
     
