@@ -20,5 +20,10 @@
   "homepage": "https://github.com/KahitSan/kahitsan.github.io#readme",
   "devDependencies": {
     "@11ty/eleventy": "^3.1.0"
+  },
+  "dependencies": {
+    "html-minifier-terser": "^7.2.0",
+    "install": "^0.13.0",
+    "npm": "^11.4.1"
   }
 }
