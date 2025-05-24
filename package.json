@@ -4,7 +4,9 @@
   "description": "kahitsan coworking space static website",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "eleventy",
+    "serve": "eleventy --serve",
+    "watch": "eleventy --watch"
   },
   "repository": {
     "type": "git",
