@@ -4,3 +4,4 @@ css-build-report.json
 css-routes-config.json
 
 .temp-css
+.DS_Store
