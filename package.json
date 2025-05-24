@@ -4,9 +4,26 @@
   "description": "kahitsan coworking space static website",
   "main": "index.js",
   "scripts": {
-    "build": "eleventy",
-    "serve": "eleventy --serve",
-    "watch": "eleventy --watch"
+    "css:analyze": "node auto-css-analyzer.js",
+    "css:build": "node robust-css-builder.js build",
+    "css:watch": "node robust-css-builder.js watch",
+    "css:clean": "node robust-css-builder.js clean",
+    "css:rebuild": "node robust-css-builder.js rebuild",
+    "css:debug": "node debug-css-classes.js all",
+    "css:debug:file": "node debug-css-classes.js file",
+    "css:safelist": "node debug-css-classes.js safelist",
+    "css:verify": "node verify-css-base.js all",
+    "css:verify:file": "node verify-css-base.js file",
+    "css:extract": "node verify-css-base.js rules",
+    "css:test": "node test-temp-dir.js",
+    "11ty:serve": "npx @11ty/eleventy --serve",
+    "11ty:build": "npx @11ty/eleventy",
+    "dev": "concurrently \"npm run css:watch\" \"npm run 11ty:serve\" --names \"CSS,11ty\" --prefix-colors \"blue,green\"",
+    "dev:fast": "npm run css:build && npm run 11ty:serve",
+    "build": "npm run css:build && npm run 11ty:build",
+    "build:prod": "NODE_ENV=production npm run build",
+    "start": "npm run dev",
+    "preview": "npm run build && npx @11ty/eleventy --serve"
   },
   "repository": {
     "type": "git",
@@ -19,10 +36,17 @@
   },
   "homepage": "https://github.com/KahitSan/kahitsan.github.io#readme",
   "devDependencies": {
-    "@11ty/eleventy": "^3.1.0"
+    "@11ty/eleventy": "^3.1.0",
+    "autoprefixer": "^10.4.21",
+    "chokidar": "^3.6.0",
+    "concurrently": "^9.1.2",
+    "cssnano": "^7.0.7",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.1.7"
   },
   "dependencies": {
     "@11ty/eleventy-img": "^6.0.4",
+    "glob": "^11.0.2",
     "html-minifier-terser": "^7.2.0",
     "install": "^0.13.0",
     "npm": "^11.4.1"

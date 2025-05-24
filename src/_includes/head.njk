@@ -7,14 +7,25 @@
     <link rel="manifest" href="/favicon/site.webmanifest">
     <title>{{ title }}</title>
 
-    {# {% set cssFile = '/css/' + routeName + '.css' %} #}
+    <!-- Extract route name from inputPath -->
+    {% set inputPath = page.inputPath %}
+    {% set pathParts = inputPath | replace("src/", "") | replace("./src/", "") %}
+    {% set fileName = pathParts.split("/") | last %}
+    {% set routeName = fileName | replace(".njk", "") | replace(".html", "") | replace(".md", "") %}
+
+    <!-- Handle special cases -->
+    {% if routeName == "index" or routeName == "" or pathParts == "index.njk" %}
+        {% set routeName = "index" %}
+    {% endif %}
+
+    {% set cssFile = '/css/' + routeName + '.css' %}
     
     <!-- Load route-specific optimized CSS -->
-    {# <link rel="preload" href="{{ cssFile }}" as="style" onload="this.onload=null;this.rel='stylesheet';document.body.classList.add('loaded')">
-    <noscript><link rel="stylesheet" href="{{ cssFile }}"></noscript> #}
+    <link rel="preload" href="{{ cssFile }}" as="style" onload="this.onload=null;this.rel='stylesheet';document.body.classList.add('loaded')">
+    <noscript><link rel="stylesheet" href="{{ cssFile }}"></noscript>
 
-
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    {# <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet"> #}
+    
     <!-- Font Awesome from CDN for reliable social icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style type="text/css">
