@@ -35,6 +35,14 @@ jobs:
       - name: Add .nojekyll file to disable Jekyll on GitHub Pages
         run: echo "" > ./_site/.nojekyll
 
+      - name: Create Netlify-style _headers file for asset caching
+        run: |
+          mkdir -p ./_site
+          echo "/assets/*" > ./_site/_headers
+          echo "  Cache-Control: public, max-age=31536000, immutable" >> ./_site/_headers
+          echo "/css/*" >> ./_site/_headers
+          echo "  Cache-Control: public, max-age=31536000, immutable" >> ./_site/_headers
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
