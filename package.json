@@ -1,0 +1,22 @@
+{
+  "name": "kahitsan.github.io",
+  "version": "1.0.0",
+  "description": "kahitsan coworking space static website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KahitSan/kahitsan.github.io.git"
+  },
+  "author": "Luis Edward Miranda",
+  "license": "Custom",
+  "bugs": {
+    "url": "https://github.com/KahitSan/kahitsan.github.io/issues"
+  },
+  "homepage": "https://github.com/KahitSan/kahitsan.github.io#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.0"
+  }
+}
