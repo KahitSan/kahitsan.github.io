@@ -35,7 +35,7 @@ title: KahitSan | Budget-Friendly Co-working Space in Naga City
     <div class="container mx-auto px-4 py-4 flex justify-between items-center">
         <div class="logo-container">
             <!-- PNG Logo Image - Replace with your actual logo path -->
-            <img src="/assets/images/logo.png" alt="KahitSan" class="logo-image">
+            {% image "images/logo.png", "99px", { class: "logo-image", alt: "KahitSan"} %}
         </div>
 
         <!-- Desktop Nav -->
@@ -102,7 +102,7 @@ title: KahitSan | Budget-Friendly Co-working Space in Naga City
 <section id="home" class="bg-gradient-gold bg-section pt-24 min-h-screen flex items-center">
     <!-- Background Image Layer with Transparency -->
     <div class="bg-image-container">
-        <div class="bg-image parallax" style="background-image: url('/assets/images/home_bg.png');"></div>
+        {% bgImage "images/home_bg.png", "bg-image parallax" %}
     </div>
 
     <!-- Content Layer -->
@@ -152,8 +152,7 @@ title: KahitSan | Budget-Friendly Co-working Space in Naga City
             <div class="feature-container-alt">
                 <div class="feature-image-side float-right" style="min-width: 50%">
                     <!-- Photo by maitree rimthong: https://www.pexels.com/photo/person-putting-coin-in-a-piggy-bank-1602726/ -->
-                    <img src="/assets/images/pexels-maitree-rimthong-444156-1602726.jpg"
-                        alt="Student-Friendly Pricing" class="w-full h-full object-cover">
+                    {% image "images/pexels-maitree-rimthong-444156-1602726.jpg", "100vw", { alt: "Student-Friendly Pricing", class: "w-full h-full object-cover" } %}
                 </div>
                 <!-- Unique styling: Curved top-left corner -->
                 <div class="feature-content-side shadow-gold-lg" style="border-top-left-radius: 30px;">
@@ -185,8 +184,7 @@ title: KahitSan | Budget-Friendly Co-working Space in Naga City
             <div class="feature-container-alt">
                 <div class="feature-image-side float-left" style="min-width: 50%">
                     <!-- Photo by Z z: https://www.pexels.com/photo/5g-metal-sign-under-wire-construction-6200343/ -->
-                    <img src="/assets/images/pexels-z-z-2157359-6200343.jpg" alt="High-Speed Internet"
-                        class="w-full h-full object-cover">
+                    {% image "images/pexels-z-z-2157359-6200343.jpg", "100vw", { alt: "High-Speed Internet", class: "w-full h-full object-cover" } %}
                 </div>
                 <!-- Unique styling: Angled corners on right -->
                 <div class="feature-content-side shadow-gold-lg"
@@ -219,14 +217,12 @@ title: KahitSan | Budget-Friendly Co-working Space in Naga City
             <div class="feature-container-alt">
                 <div class="feature-image-side float-right" style="min-width: 50%">
                     <!-- Photo by RDNE Stock project: https://www.pexels.com/photo/a-person-holding-letter-board-with-advisory-open-24-7-7564287/ -->
-                    <img src="/assets/images/pexels-rdne-7564287.jpg" alt="24/7 Access"
-                        class="w-full h-full object-cover">
+                    {% image "images/pexels-rdne-7564287.jpg", "100vw", { alt: "24/7 Access", class: "w-full h-full object-cover" } %}
                 </div>
                 <!-- Original styling -->
                 <div class="feature-content-side shadow-gold-lg">
                     <div class="mb-4">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36' viewBox='0 0 24 24' fill='none' stroke='%23b38728' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='11' width='18' height='11' rx='2' ry='2'%3E%3C/rect%3E%3Cpath d='M7 11V7a5 5 0 0 1 10 0v4'%3E%3C/path%3E%3C/svg%3E"
-                            alt="Lock icon" class="h-10 w-10">
+                        {% image "icons/lock.svg", "36px", { alt: "Lock icon", class: "h-10 w-10" } %}
                     </div>
                     <h3 class="text-xl font-semibold mb-3 text-white">24/7 Access</h3>
                     <p class="text-gray-400 mb-4">Study or work anytime – perfect for late-night cramming sessions
@@ -252,8 +248,7 @@ title: KahitSan | Budget-Friendly Co-working Space in Naga City
             <div class="feature-container-alt">
                 <div class="feature-image-side float-left" style="min-width: 50%">
                     <!-- Photo by Cemrecan Yurtman: https://www.pexels.com/photo/turkish-coffee-served-in-a-cozy-cafe-setting-30226645/ -->
-                    <img src="/assets/images/pexels-cmrcn-30226645.jpg" alt="Free Coffee & Water"
-                        class="w-full h-full object-cover">
+                    {% image "images/pexels-cmrcn-30226645.jpg", "100vw", { alt: "Free Coffee & Water", class: "w-full h-full object-cover" } %}
                 </div>
                 <!-- Unique styling: Curved bottom corners -->
                 <div class="feature-content-side shadow-gold-lg"
@@ -291,7 +286,7 @@ title: KahitSan | Budget-Friendly Co-working Space in Naga City
 <section class="py-20 bg-dark relative overflow-hidden">
     <div class="absolute inset-0 opacity-10">
         <!-- Photo by Dani Hart: https://www.pexels.com/photo/women-sitting-on-chairs-inside-a-room-3719037/ -->
-        <img src="/assets/images/pexels-growthgal-3719037.jpg" class="w-full h-full object-cover">
+        {% image "images/pexels-growthgal-3719037.jpg", "100vw", { alt: "Women sitting on chairs inside a room", class: "w-full h-full object-cover" } %}
     </div>
     <div class="container mx-auto px-4 relative z-10">
         <div class="text-center mb-16">
@@ -375,8 +370,7 @@ title: KahitSan | Budget-Friendly Co-working Space in Naga City
             <!-- Community Image -->
             <div class="gallery-img h-full lg:col-span-1">
                 <!-- Photo by fauxels: https://www.pexels.com/photo/top-view-photo-of-people-doing-handshakes-3183148/ -->
-                <img src="/assets/images/pexels-fauxels-3183148.jpg" alt="Creative professionals working together"
-                    class="w-full h-full object-cover">
+                {% image "images/pexels-fauxels-3183148.jpg", "100vw", { alt: "Creative professionals working together", class: "w-full h-full object-cover" } %}
             </div>
 
             <!-- Add-ons Grid -->
@@ -574,7 +568,7 @@ title: KahitSan | Budget-Friendly Co-working Space in Naga City
             <!-- About -->
             <div class="md:col-span-2">
                 <div class="mb-6">
-                    <img src="/logo.png" alt="KahitSan Logo" class="h-10 w-auto">
+                    {% image "/images/logo.png", "99px", { class: "h-10 w-auto", alt: "Kahitsan" } %}
                 </div>
                 <h4 class="text-xl font-semibold mb-4 text-gold-light relative pb-2">
                     <span class="relative z-10">About KahitSan</span>
