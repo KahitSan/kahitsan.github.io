@@ -30,8 +30,7 @@ title: KahitSan | Budget-Friendly Co-working Space in Naga City
         </div>
     </div>
 </div>
-
-<!-- Header with PNG Logo -->
+<!-- Updated Header with Working Mobile Menu -->
 <header class="fixed w-full z-50 bg-dark-secondary shadow-md">
     <div class="container mx-auto px-4 py-4 flex justify-between items-center">
         <div class="logo-container">
@@ -42,16 +41,11 @@ title: KahitSan | Budget-Friendly Co-working Space in Naga City
         <!-- Desktop Nav -->
         <nav class="hidden md:flex items-center">
             <ul class="flex space-x-8 mr-8">
-                <li><a href="#home" class="text-gray-300 hover:text-gold-light transition duration-300">Home</a>
-                </li>
-                <li><a href="#features"
-                        class="text-gray-300 hover:text-gold-light transition duration-300">Features</a></li>
-                <li><a href="#pricing"
-                        class="text-gray-300 hover:text-gold-light transition duration-300">Pricing</a></li>
-                <li><a href="#addons"
-                        class="text-gray-300 hover:text-gold-light transition duration-300">Add-ons</a></li>
-                <li><a href="#sponsorships"
-                        class="text-gray-300 hover:text-gold-light transition duration-300">Sponsorships</a></li>
+                <li><a href="#home" class="text-gray-300 hover:text-gold-light transition duration-300">Home</a></li>
+                <li><a href="#features" class="text-gray-300 hover:text-gold-light transition duration-300">Features</a></li>
+                <li><a href="#pricing" class="text-gray-300 hover:text-gold-light transition duration-300">Pricing</a></li>
+                <li><a href="#addons" class="text-gray-300 hover:text-gold-light transition duration-300">Add-ons</a></li>
+                <li><a href="#sponsorships" class="text-gray-300 hover:text-gold-light transition duration-300">Sponsorships</a></li>
             </ul>
             <div class="flex">
                 <a href="https://www.facebook.com/KahitSan" target="_blank" class="social-icon">
@@ -68,12 +62,38 @@ title: KahitSan | Budget-Friendly Co-working Space in Naga City
 
         <!-- Mobile menu button -->
         <div class="md:hidden">
-            <button class="text-white focus:outline-none">
-                <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
-                    <path fill-rule="evenodd"
-                        d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z" />
+            <button id="mobile-menu-button" class="text-white focus:outline-none">
+                <svg id="menu-icon" class="h-6 w-6 fill-current" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z" />
+                </svg>
+                <svg id="close-icon" class="h-6 w-6 fill-current hidden" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" d="M18.364 5.636a1 1 0 0 1 0 1.414L13.414 12l4.95 4.95a1 1 0 1 1-1.414 1.414L12 13.414l-4.95 4.95a1 1 0 0 1-1.414-1.414L10.586 12 5.636 7.05a1 1 0 0 1 1.414-1.414L12 10.586l4.95-4.95a1 1 0 0 1 1.414 0z" />
                 </svg>
             </button>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden bg-dark-secondary border-t border-gray-700">
+        <div class="px-4 pt-2 pb-4 space-y-2">
+            <a href="#home" class="block px-3 py-2 text-gray-300 hover:text-gold-light hover:bg-dark rounded-md transition duration-300" onclick="closeMobileMenu()">Home</a>
+            <a href="#features" class="block px-3 py-2 text-gray-300 hover:text-gold-light hover:bg-dark rounded-md transition duration-300" onclick="closeMobileMenu()">Features</a>
+            <a href="#pricing" class="block px-3 py-2 text-gray-300 hover:text-gold-light hover:bg-dark rounded-md transition duration-300" onclick="closeMobileMenu()">Pricing</a>
+            <a href="#addons" class="block px-3 py-2 text-gray-300 hover:text-gold-light hover:bg-dark rounded-md transition duration-300" onclick="closeMobileMenu()">Add-ons</a>
+            <a href="#sponsorships" class="block px-3 py-2 text-gray-300 hover:text-gold-light hover:bg-dark rounded-md transition duration-300" onclick="closeMobileMenu()">Sponsorships</a>
+            
+            <!-- Mobile Social Icons -->
+            <div class="flex justify-center pt-4 space-x-4 border-t border-gray-700 mt-4">
+                <a href="https://www.facebook.com/KahitSan" target="_blank" class="social-icon">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/kahitsan_com" target="_blank" class="social-icon">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.tiktok.com/@kahitsan21" target="_blank" class="social-icon">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+            </div>
         </div>
     </div>
 </header>
@@ -648,6 +668,35 @@ title: KahitSan | Budget-Friendly Co-working Space in Naga City
 
 <!-- JavaScript for modals and optional enhanced parallax -->
 <script type="text/javascript">
+// Mobile menu functionality
+    function toggleMobileMenu() {
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const closeIcon = document.getElementById('close-icon');
+        
+        if (mobileMenu.classList.contains('hidden')) {
+            // Show menu
+            mobileMenu.classList.remove('hidden');
+            menuIcon.classList.add('hidden');
+            closeIcon.classList.remove('hidden');
+        } else {
+            // Hide menu
+            mobileMenu.classList.add('hidden');
+            menuIcon.classList.remove('hidden');
+            closeIcon.classList.add('hidden');
+        }
+    }
+
+    function closeMobileMenu() {
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const closeIcon = document.getElementById('close-icon');
+        
+        mobileMenu.classList.add('hidden');
+        menuIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+    }
+
     // Modal functionality
     function openModal() {
         document.getElementById('comingSoonModal').style.display = 'block';
@@ -675,6 +724,12 @@ title: KahitSan | Budget-Friendly Co-working Space in Naga City
     // Optional enhanced parallax effect - only runs if device supports it
     // This is not necessary for the basic parallax effect which works with CSS only
     document.addEventListener('DOMContentLoaded', function () {
+        // Mobile menu event listener
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        if (mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', toggleMobileMenu);
+        }
+
         // Check if we're not on a mobile device - parallax can be janky on mobile
         if (window.innerWidth > 768) {
             // Get all parallax elements
