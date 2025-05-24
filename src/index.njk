@@ -387,7 +387,11 @@ title: KahitSan | Budget-Friendly Co-working Space in Naga City
             <!-- Community Image -->
             <div class="gallery-img h-full lg:col-span-1">
                 <!-- Photo by fauxels: https://www.pexels.com/photo/top-view-photo-of-people-doing-handshakes-3183148/ -->
-                {% image "images/pexels-fauxels-3183148.jpg", "100vw", { alt: "Creative professionals working together", class: "w-full h-full object-cover" } %}
+                {% image "images/pexels-fauxels-3183148.jpg", 
+                    "(min-width: 480px) 480px, 100vw", 
+                    { alt: "Creative professionals working together", class: "w-full h-full object-cover" },
+                    [320, 480] 
+                %}
             </div>
 
             <!-- Add-ons Grid -->
