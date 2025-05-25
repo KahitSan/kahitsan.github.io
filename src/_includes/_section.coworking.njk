@@ -1,0 +1,196 @@
+<!-- Coworking Section Data -->
+{% set coworkingData = {
+  title: "Coworking Spaces",
+  subtitle: "Professional workspaces designed for productivity, collaboration, and growth",
+  location: {
+    name: "Diversion, Naga City",
+    status: "Now Open",
+    statusType: "open",
+    address: "Unit 7, BT2 Building, Roxas Avenue Diversion Road",
+    landmark: "Across from Bicol Pet, beside Yashano",
+    phone: "+63 905 546 7677",
+    features: [
+      {
+        icon: "💺",
+        label: "Day Pass: ₱99"
+      },
+      {
+        icon: "📅", 
+        label: "Monthly: ₱1,499"
+      },
+      {
+        icon: "🕒",
+        label: "24/7 Access"
+      },
+      {
+        icon: "☕",
+        label: "Free Coffee"
+      }
+    ],
+    cta: {
+      url: "/coworking/naga-city"
+    },
+    stats: [
+      {
+        value: "24/7",
+        label: "Access with Smart Door lock"
+      },
+      {
+        value: "₱99",
+        label: "Starting Rate/Day"
+      },
+      {
+        value: "Fast",
+        label: "Multi-Connection Internet"
+      },
+      {
+        value: "Free",
+        label: "Coffee & Common Parking"
+      }
+    ]
+  },
+  visualPlaceholder: {
+    title: "Naga City Workspace",
+    subtitle: "Interactive floor plan & real-time booking"
+  }
+} %}
+
+<!-- Coworking Spotlight Section -->
+<section class="py-16 bg-dark">
+    <div class="max-w-6xl mx-auto px-8">
+        <!-- Section Header -->
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gold-light">
+                {{ coworkingData.title }}
+            </h2>
+            <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                {{ coworkingData.subtitle }}
+            </p>
+        </div>
+
+        <!-- Location Showcase -->
+        <div class="bg-dark-secondary rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-gold-light/20">
+            <div class="grid grid-cols-1 lg:grid-cols-2 items-center">
+                
+                <!-- Visual Placeholder -->
+                <div class="community-gradient flex items-center justify-center text-white text-xl text-center font-semibold">
+                    {% image "images/branch_naga_diversion.png", 
+                    "(min-width: 768px) 700px, 100vw", 
+                    { alt: "24/7 Access", class: "w-full h-auto object-cover grayscale hover:grayscale-0 transition duration-300 ease-in-out" }, 
+                    [320, 480, 640, 700] 
+                    %}
+                </div>
+
+                <div class="p-8 lg:p-12">
+                    
+
+                    <!-- Location Title -->
+                    <h3 class="text-2xl text-white mb-4 font-semibold">
+                        <span class="mr-2">{{ coworkingData.location.name }} </span>
+                        <!-- Status Badge -->
+                        {% if coworkingData.location.statusType == "open" %}
+                            <span class="bg-green-500 text-white px-4 py-2 rounded-full text-sm font-semibold inline-block animate-bounce animate-pulse">
+                                {{ coworkingData.location.status }}
+                            </span>
+                        {% elif coworkingData.location.statusType == "coming" %}
+                            <span class="bg-orange-500 text-white px-4 py-2 rounded-full text-sm font-semibold inline-block animate-pulse">
+                                {{ coworkingData.location.status }}
+                            </span>
+                        {% endif %}
+                    </h3>
+
+                    <!-- Address Information -->
+                    <div class="text-gray-400 mb-6 leading-relaxed space-y-1">
+                        <div class="flex items-start gap-2">
+                            <span class="text-gold-light">📍</span>
+                            <span>{{ coworkingData.location.address }}</span>
+                        </div>
+                        <div class="flex items-start gap-2">
+                            <span class="text-gold-light">🚗</span>
+                            <span>{{ coworkingData.location.landmark }}</span>
+                        </div>
+                        <div class="flex items-start gap-2">
+                            <span class="text-gold-light">📞</span>
+                            <span>{{ coworkingData.location.phone }}</span>
+                        </div>
+                    </div>
+                    <hr class="text-gray-600" />
+                    <!-- Coworking Features Stats -->
+                    <div class="p-2 bg-gold-light/10 rounded-lg">
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                            {% for stat in coworkingData.location.stats %}
+                                <div>
+                                    <div class="text-xl text-gold-light font-bold">
+                                        {{ stat.value }}
+                                    </div>
+                                    <div class="text-gray-400 text-xs">
+                                        {{ stat.label }}
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    
+                    <!-- CTA Button -->
+                    <a href="{{ coworkingData.location.cta.url }}" 
+                    class="bg-gold hover:bg-gold-light text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:-translate-y-0.5 inline-block mb-8 shadow-lg hover:shadow-gold-light/30">
+                        See {{  coworkingData.location.name }}
+                    </a>
+                    
+                    
+                </div>
+
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+<!-- Required CSS -->
+<style type="text/css">
+    /* Enhanced hover effects */
+    .hover\:shadow-2xl:hover {
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+    
+    /* Gold shadow effect */
+    .hover\:shadow-gold-light\/20:hover {
+        box-shadow: 0 25px 50px -12px rgba(179, 135, 40, 0.2);
+    }
+    
+    .shadow-gold-light\/30 {
+        box-shadow: 0 10px 15px -3px rgba(179, 135, 40, 0.3), 0 4px 6px -2px rgba(179, 135, 40, 0.05);
+    }
+</style>
+
+<style type="text/css">
+/* Pulse Animation */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.9;
+    }
+}
+
+.animate-pulse {
+    animation: pulse 1.5s infinite;
+}
+
+/* Bounce Animation */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.animate-bounce {
+    animation: bounce 0.5s infinite;
+}
+</style>

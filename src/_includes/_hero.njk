@@ -1,0 +1,175 @@
+<!-- Hero Section Data -->
+{% set heroData = {
+  title: "Your KahitSan Success Partner in Naga City",
+  subtitle: "KahitSan provides affordable coworking spaces and essential business services to help students, entrepreneurs, and professionals succeed in Naga City and beyond.",
+  buttons: [
+    {
+      text: "Explore Workspace",
+      url: "/coworking",
+      type: "primary"
+    },
+    {
+      text: "Browse Services", 
+      url: "/services",
+      type: "secondary"
+    }
+  ],
+  backgroundImage: "/assets/images/home_bg.png"
+} %}
+
+<!-- Hero Section -->
+<section class="hero-gradient relative pt-32 pb-16 text-center overflow-hidden min-h-screen/50 flex items-center">
+    <!-- Background Pattern Overlay -->
+    <div class="absolute inset-0 opacity-30">
+        <div class="w-full h-full bg-grid-pattern"></div>
+    </div>
+    
+    <!-- Background Image (if using) -->
+    {% if heroData.backgroundImage %}
+    {% bgImage "images/home_bg.png", "absolute inset-0 opacity-40 parallax" %}
+    {% endif %}
+
+    <!-- Hero Content -->
+    <div class="max-w-6xl mx-auto px-8 relative z-10 w-full">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-white drop-shadow-lg">
+            
+        </h1>
+        <h1 id="typing-effect" class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-white drop-shadow-lg">
+            <span id="typing-text"></span><span id="cursor">|</span>
+        </h1>
+
+        
+        <p class="text-xl md:text-2xl mb-10 opacity-95 max-w-4xl mx-auto text-white drop-shadow leading-relaxed">
+            {{ heroData.subtitle }}
+        </p>
+        
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row justify-center gap-4 mb-8">
+            {% for button in heroData.buttons %}
+                {% if button.type == "primary" %}
+                    <a href="{{ button.url }}" 
+                       class="bg-dark-secondary hover:bg-dark text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 hover:-translate-y-1 shadow-lg hover:shadow-xl">
+                        {{ button.text }}
+                    </a>
+                {% else %}
+                    <a href="{{ button.url }}" 
+                       class="bg-transparent hover:bg-white/20 text-white font-semibold px-8 py-4 rounded-lg border-2 border-white hover:border-white transition-all duration-300 hover:-translate-y-1">
+                        {{ button.text }}
+                    </a>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Required CSS for gradient and grid pattern -->
+<style>
+    /* Hero gradient background */
+    .hero-gradient {
+        background: linear-gradient(135deg, #80570d, #b38728);
+    }
+    
+    /* Grid pattern overlay */
+    .bg-grid-pattern {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3Cpattern id='grid' width='10' height='10' patternUnits='userSpaceOnUse'%3E%3Cpath d='M 10 0 L 0 0 0 10' fill='none' stroke='rgba(255,255,255,0.1)' stroke-width='0.5'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100' height='100' fill='url(%23grid)'/%3E%3C/svg%3E");
+    }
+    
+    /* Ensure hero takes proper height */
+    .min-h-screen {
+        min-height: 100vh;
+    }
+    
+    /* Better text shadows for readability */
+    .drop-shadow-lg {
+        filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+    }
+    
+    .drop-shadow {
+        filter: drop-shadow(0 1px 2px rgb(0 0 0 / 0.1)) drop-shadow(0 1px 1px rgb(0 0 0 / 0.06));
+    }
+
+    /* Parallax effect */
+    .parallax {
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+</style>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Only enable parallax on desktop devices
+        if (window.innerWidth > 768) {
+            const parallax = document.querySelector('.parallax');
+            if (!parallax) return;
+
+            let lastScrollPosition = window.pageYOffset;
+            let ticking = false;
+
+            const updateParallax = () => {
+                const offset = lastScrollPosition * 0.4;
+                parallax.style.transform = `translateY(${lastScrollPosition * 0.3}px)`;
+                parallax.style.backgroundPositionY = `calc(50% + ${offset}px)`;
+                ticking = false;
+            };
+
+            window.addEventListener('scroll', function() {
+                lastScrollPosition = window.pageYOffset;
+
+                if (!ticking) {
+                    window.requestAnimationFrame(updateParallax);
+                    ticking = true;
+                }
+            }, { passive: true });
+        }
+    });
+</script>
+
+<style>
+    #cursor {
+        display: inline-block;
+        font-weight: bold;
+        color: white;
+        animation: blink 0.5s step-end infinite;
+    }
+
+    @keyframes blink {
+        50% {
+            opacity: 0;
+        }
+    }
+</style>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const titles = [
+            "{{heroData.title}}",
+            "Your Budget-Friendly Workspace in Naga City",
+            "Your Reliable Partner in Naga City"
+        ];
+        const typingTextElement = document.getElementById("typing-text");
+        let titleIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function type() {
+            const currentTitle = titles[titleIndex];
+            if (isDeleting) {
+                typingTextElement.textContent = currentTitle.substring(0, charIndex--);
+            } else {
+                typingTextElement.textContent = currentTitle.substring(0, charIndex++);
+            }
+
+            if (!isDeleting && charIndex === currentTitle.length) {
+                setTimeout(() => (isDeleting = true), 1000); // Pause before deleting
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                titleIndex = (titleIndex + 1) % titles.length; // Move to the next title
+            }
+
+            const typingSpeed = isDeleting ? 30 : 50; // Faster typing and deleting speed
+            setTimeout(type, typingSpeed);
+        }
+
+        type();
+    });
+</script>

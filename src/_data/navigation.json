@@ -1,0 +1,198 @@
+{
+    "main": [
+        {
+            "title": "Coworking",
+            "url": "/coworking",
+            "hasDropdown": true,
+            "dropdown": [
+                {
+                    "title": "Naga City",
+                    "url": "/coworking/naga-city",
+                    "description": "Our main location with full amenities"
+                },
+                {
+                    "title": "Virtual Office",
+                    "url": "/coworking/virtual-office",
+                    "description": "Business address and mail services"
+                },
+                {
+                    "title": "All Locations",
+                    "url": "/coworking",
+                    "description": "View all workspace options"
+                }
+            ]
+        },
+        {
+            "title": "Services",
+            "url": "/services",
+            "hasDropdown": true,
+            "dropdown": [
+                {
+                    "title": "Job Board",
+                    "url": "/services/jobs",
+                    "description": "Find opportunities in Naga City"
+                },
+                {
+                    "title": "Business Support",
+                    "url": "/services/business",
+                    "description": "Registration, virtual office, consulting"
+                },
+                {
+                    "title": "Event Management",
+                    "url": "/services/events",
+                    "description": "Workshops, meetings, corporate events"
+                },
+                {
+                    "title": "Event Sponsorship",
+                    "url": "/sponsor",
+                    "description": "Partner with us for community events"
+                },
+                {
+                    "title": "View All",
+                    "url": "/services",
+                    "description": "Complete services overview"
+                }
+            ]
+        },
+        {
+            "title": "Community",
+            "url": "/community",
+            "hasDropdown": false
+        },
+        {
+            "title": "About",
+            "url": "/about",
+            "hasDropdown": false
+        },
+        {
+            "title": "Help",
+            "url": "/resources",
+            "hasDropdown": true,
+            "dropdown": [
+                {
+                    "title": "FAQ",
+                    "url": "/resources/faq",
+                    "description": "Frequently asked questions"
+                },
+                {
+                    "title": "Policies",
+                    "url": "/resources/policies",
+                    "description": "Terms and workspace policies"
+                },
+                {
+                    "title": "Terms",
+                    "url": "/resources/terms",
+                    "description": "Terms of service"
+                },
+                {
+                    "title": "Privacy",
+                    "url": "/resources/privacy",
+                    "description": "Privacy policy and data protection"
+                }
+            ]
+        }
+    ],
+    "mobile": [
+        {
+            "title": "Coworking",
+            "url": "/coworking"
+        },
+        {
+            "title": "Services",
+            "url": "/services"
+        },
+        {
+            "title": "Community",
+            "url": "/community"
+        },
+        {
+            "title": "About",
+            "url": "/about"
+        },
+        {
+            "title": "Help",
+            "url": "/resources"
+        }
+    ],
+    "cta": {
+        "title": "Contact Us",
+        "url": "/contact",
+        "type": "primary"
+    },
+    "footer": {
+        "quickLinks": [
+            {
+                "title": "Coworking Spaces",
+                "url": "/coworking"
+            },
+            {
+                "title": "Services",
+                "url": "/services"
+            },
+            {
+                "title": "Discord Community",
+                "url": "/community"
+            },
+            {
+                "title": "About",
+                "url": "/about"
+            }
+        ],
+        "business": [
+            {
+                "title": "Sponsor Events",
+                "url": "/sponsor"
+            },
+            {
+                "title": "Business Support",
+                "url": "/services/business"
+            },
+            {
+                "title": "Event Hosting",
+                "url": "/services/events"
+            }
+        ],
+        "support": [
+            {
+                "title": "FAQ",
+                "url": "/resources/faq"
+            },
+            {
+                "title": "Policies",
+                "url": "/resources/policies"
+            },
+            {
+                "title": "Terms of Service",
+                "url": "/resources/terms"
+            },
+            {
+                "title": "Privacy Policy",
+                "url": "/resources/privacy"
+            },
+            {
+                "title": "Contact Support",
+                "url": "/contact"
+            }
+        ]
+    },
+    "social": [
+        {
+            "name": "Facebook",
+            "url": "https://www.facebook.com/KahitSan",
+            "icon": "fab fa-facebook-f",
+            "color": "blue"
+        },
+        {
+            "name": "Instagram",
+            "url": "https://www.instagram.com/kahitsan_com",
+            "icon": "fab fa-instagram",
+            "color": "gradient"
+        },
+        {
+            "name": "TikTok",
+            "url": "https://www.tiktok.com/@kahitsan21",
+            "icon": "fab fa-tiktok",
+            "color": "dark"
+        }
+    ]
+}
