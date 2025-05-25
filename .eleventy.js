@@ -49,19 +49,24 @@ module.exports = function (eleventyConfig) {
   );
 
   // bgImage shortcode stays same as before
-  eleventyConfig.addNunjucksAsyncShortcode("bgImage", async function (src, className = "") {
+eleventyConfig.addNunjucksAsyncShortcode("bgImage", async function (src, className = "", attrs = {}) {
     let fullSrc = path.join("src/assets", src);
     let metadata = await Image(fullSrc, {
-      widths: [1980],
-      formats: ["jpeg"],
-      outputDir: "./_site/assets/optimized",
-      urlPath: "/assets/optimized/",
+        widths: [1980],
+        formats: ["jpeg"],
+        outputDir: "./_site/assets/optimized",
+        urlPath: "/assets/optimized/",
     });
 
     let imageUrl = metadata.jpeg[0].url;
 
-    return `<div class="${className}" style="background-image: url('${imageUrl}');"></div>`;
-  });
+    // Convert attrs object to HTML attributes string
+    const attrsString = Object.entries(attrs)
+        .map(([key, value]) => `${key}="${value}"`)
+        .join(" ");
+
+    return `<div class="${className}" style="background-image: url('${imageUrl}');" ${attrsString ? " " + attrsString : ""}></div>`;
+});
 
   return {
     dir: {

@@ -26,7 +26,7 @@
     
     <!-- Background Image (if using) -->
     {% if heroData.backgroundImage %}
-    {% bgImage "images/home_bg.png", "absolute inset-0 opacity-40 parallax" %}
+        {% bgImage "images/home_bg.png", "absolute inset-0 opacity-40 parallax", { fetchpriority: "high" } %}
     {% endif %}
 
     <!-- Hero Content -->
