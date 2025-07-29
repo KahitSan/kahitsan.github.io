@@ -1,132 +1,124 @@
 <!-- KahitSan Engagement & Services Data -->
 {% set servicesData = {
-  title: "KahitSan Engagement & Services",
-  subtitle: "Live previews of opportunities and services available to our community",
-  tabs: [
+  "title": "KahitSan Engagement & Services",
+  "subtitle": "Live previews of opportunities and services available to our community",
+  "tabs": [
     {
-      id: "jobs",
-      icon: "💼",
-      title: "Job Board",
-      description: "Current opportunities for students and professionals in Naga City",
-      content: {
-        type: "jobs",
-        items: [
+      "id": "sponsorship",
+      "title": "Event Sponsorship",
+      "description": "Partner with KahitSan to support student and professional events in Naga City",
+      "content": {
+        "type": "sponsorships",
+        "items": [
           {
-            title: "Social Media Assistant",
-            company: "Local Marketing Agency",
-            details: ["₱15,000/month", "Part-time", "Fresh grad OK"]
-          },
-          {
-            title: "Freelance Graphic Designer", 
-            company: "Multiple Clients",
-            details: ["₱500-1,500/project", "Remote OK", "Portfolio required"]
-          },
-          {
-            title: "Virtual Assistant",
-            company: "Online Business", 
-            details: ["₱20,000/month", "Remote", "Student-friendly"]
+            "name": "CE-BLAZE: Civil Engineering Days 2025",
+            "date": "April 2025",
+            "icon": "fas fa-graduation-cap text-gold-light",
+            "description": "BISCAST Pavilion • Educational showcases • Innovation competitions",
+            "organization": "Association of Civil Engineering Students",
+            "link": "https://www.facebook.com/biscastaces/posts/1050661077084594"
           }
         ],
-        cta: {
-          text: "View 27+ more jobs →",
-          url: "/services/jobs"
+        "cta": {
+          "text": "See all sponsorships →",
+          "url": "/sponsor"
         }
       }
     },
     {
-      id: "business",
-      icon: "🏢",
-      title: "Business Support",
-      description: "Essential services to start and grow your business in the Philippines",
-      content: {
-        type: "services",
-        items: [
+      "id": "jobs",
+      "icon": "💼",
+      "title": "Job Board",
+      "description": "Current opportunities for students and professionals in Naga City",
+      "content": {
+        "type": "jobs",
+        "items": [
           {
-            name: "Business Registration (DTI)",
-            price: "₱2,500 all-in",
-            description: "Complete business name registration with DTI"
+            "title": "Social Media Assistant",
+            "company": "Local Marketing Agency",
+            "details": ["₱15,000/month", "Part-time", "Fresh grad OK"]
           },
           {
-            name: "Virtual Office Package",
-            price: "₱1,500/month", 
-            description: "Business address + mail handling + phone"
+            "title": "Freelance Graphic Designer",
+            "company": "Multiple Clients",
+            "details": ["₱500-1,500/project", "Remote OK", "Portfolio required"]
           },
           {
-            name: "Bookkeeping Setup",
-            price: "₱3,000 setup",
-            description: "Accounting system + BIR compliance guidance"
+            "title": "Virtual Assistant",
+            "company": "Online Business",
+            "details": ["₱20,000/month", "Remote", "Student-friendly"]
           }
         ],
-        cta: {
-          text: "View all business services →",
-          url: "/services/business"
+        "cta": {
+          "text": "View 27+ more jobs →",
+          "url": "/services/jobs"
         }
       }
     },
     {
-      id: "events",
-      icon: "🎉",
-      title: "Event Management",
-      description: "Upcoming workshops and networking events for students and professionals",
-      content: {
-        type: "events",
-        items: [
+      "id": "business",
+      "icon": "🏢",
+      "title": "Business Support",
+      "description": "Essential services to start and grow your business in the Philippines",
+      "content": {
+        "type": "services",
+        "items": [
           {
-            date: { month: "Jan", day: "15" },
-            title: "Student Entrepreneur Meetup",
-            details: "6:00 PM • Free for students • Networking + snacks"
+            "name": "Business Registration (DTI)",
+            "price": "₱2,500 all-in",
+            "description": "Complete business name registration with DTI"
           },
           {
-            date: { month: "Jan", day: "22" },
-            title: "Freelancing 101 Workshop", 
-            details: "2:00 PM • ₱200 fee • Includes materials"
+            "name": "Virtual Office Package",
+            "price": "₱1,500/month",
+            "description": "Business address + mail handling + phone"
           },
           {
-            date: { month: "Jan", day: "29" },
-            title: "Business Registration Seminar",
-            details: "10:00 AM • Free • DTI representative speaking"
+            "name": "Bookkeeping Setup",
+            "price": "₱3,000 setup",
+            "description": "Accounting system + BIR compliance guidance"
           }
         ],
-        cta: {
-          text: "View full events calendar →",
-          url: "/services/events"
+        "cta": {
+          "text": "View all business services →",
+          "url": "/services/business"
         }
       }
     },
     {
-      id: "sponsorship",
-      icon: "🤝",
-      title: "Event Sponsorship",
-      description: "Partner with KahitSan to support student and professional events in Naga City",
-      content: {
-        type: "sponsorships",
-        items: [
+      "id": "events",
+      "icon": "🎉",
+      "title": "Event Management",
+      "description": "Upcoming workshops and networking events for students and professionals",
+      "content": {
+        "type": "events",
+        "items": [
           {
-            name: "CE-BLAZE: Civil Engineering Days 2025",
-            date: "April 2025",
-            description: "BISCAST Pavilion • Educational showcases • Innovation competitions"
+            "date": { "month": "Jan", "day": "15" },
+            "title": "Student Entrepreneur Meetup",
+            "details": "6:00 PM • Free for students • Networking + snacks"
           },
           {
-            name: "Future Student Event Sponsorship",
-            date: "Planning Stage",
-            description: "Academic conferences • Workshop series • Career fairs"
+            "date": { "month": "Jan", "day": "22" },
+            "title": "Freelancing 101 Workshop",
+            "details": "2:00 PM • ₱200 fee • Includes materials"
           },
           {
-            name: "Community Event Sponsorship", 
-            date: "Planning Stage",
-            description: "Networking events • Business seminars • Skills workshops"
+            "date": { "month": "Jan", "day": "29" },
+            "title": "Business Registration Seminar",
+            "details": "10:00 AM • Free • DTI representative speaking"
           }
         ],
-        cta: {
-          text: "Contact us for sponsorship opportunities →",
-          url: "/sponsor"
+        "cta": {
+          "text": "View full events calendar →",
+          "url": "/services/events"
         }
       }
     }
   ],
-  mainCta: {
-    text: "View All Services",
-    url: "/services"
+  "mainCta": {
+    "text": "View All Services",
+    "url": "/services"
   }
 } %}
 
@@ -158,11 +150,10 @@
         <div class="tab-content-container">
             {% for tab in servicesData.tabs %}
                 <div class="tab-content{% if loop.first %} active{% endif %}" id="tab-{{ tab.id }}">
-                    <div class="max-w-4xl mx-auto">
+                    <div>
                         <!-- Tab Header -->
                         <div class="text-center mb-8">
-                            <div class="text-5xl mb-4">{{ tab.icon }}</div>
-                            <h3 class="text-2xl font-bold text-white mb-2">{{ tab.title }}</h3>
+                            <h3 class="text-2xl font-bold text-gold mb-2">{{ tab.title }}</h3>
                             <p class="text-gray-400 leading-relaxed">{{ tab.description }}</p>
                         </div>
 
@@ -230,37 +221,55 @@
                                     
                                 {% elif tab.content.type == "sponsorships" %}
                                     <!-- Sponsorships -->
-                                    {% for sponsorship in tab.content.items %}
-                                        <div class="border-l-4 border-gold-light bg-gray-800 p-6 rounded-lg">
-                                            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                                                <div>
-                                                    <h4 class="text-white font-semibold text-lg mb-1">{{ sponsorship.name }}</h4>
-                                                    <p class="text-gold-light font-medium mb-2">{{ sponsorship.date }}</p>
-                                                    <p class="text-gray-400">{{ sponsorship.description }}</p>
+                                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                                        {% for sponsorship in tab.content.items %}
+                                            <a href="{{ sponsorship.link }}" target="_blank"
+                                                class="bg-dark-secondary p-6 rounded-lg shadow-gold sponsorship-card border border-gray-800">
+                                                <div class="text-sm uppercase tracking-wider text-gold-light mb-2">{{ sponsorship.date }}</div>
+                                                <h3 class="text-xl font-semibold mb-3 text-white">{{ sponsorship.name }}</h3>
+                                                <p class="text-gray-400">{{ sponsorship.description }}</p>
+                                    
+                                                <div class="mt-4 flex items-center">
+                                                    <div class="h-10 w-10 bg-dark rounded-full flex items-center justify-center mr-2">
+                                                        <i class="{{ sponsorship.icon }} text-gold-light"></i>
+                                                    </div>
+                                                    <span class="text-sm text-gray-400">{{ sponsorship.organization }}</span>
                                                 </div>
-                                                <div class="flex flex-col gap-2">
-                                                    {% if sponsorship.date == "April 2025" %}
-                                                        <span class="bg-green-600 text-white px-4 py-1 rounded-full text-sm font-medium text-center">
-                                                            Sponsored
-                                                        </span>
-                                                    {% else %}
-                                                        <span class="bg-orange-600 text-white px-4 py-1 rounded-full text-sm font-medium text-center">
-                                                            Planning
-                                                        </span>
-                                                    {% endif %}
+                                            </a>
+                                        {% else %}
+                                            <!-- Placeholder cards for future sponsorships -->
+                                            <div
+                                                class="bg-dark-secondary bg-opacity-50 p-6 rounded-lg border border-gray-800 border-dashed flex items-center justify-center">
+                                                <div class="text-center">
+                                                    <div class="text-3xl text-gray-700 mb-2">+</div>
+                                                    <p class="text-gray-600">Future sponsorship</p>
                                                 </div>
                                             </div>
-                                        </div>
-                                    {% endfor %}
+                                            <div
+                                                class="bg-dark-secondary bg-opacity-50 p-6 rounded-lg border border-gray-800 border-dashed flex items-center justify-center">
+                                                <div class="text-center">
+                                                    <div class="text-3xl text-gray-700 mb-2">+</div>
+                                                    <p class="text-gray-600">Future sponsorship</p>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
                                 {% endif %}
                             </div>
 
                             <!-- Tab CTA -->
-                            <div class="text-center mt-8 pt-6 border-t border-gray-700">
+                            <div class="text-center mt-8">
                                 <a href="{{ tab.content.cta.url }}" 
                                    class="text-gold-light hover:text-gold font-semibold transition-colors duration-300 text-lg">
                                     {{ tab.content.cta.text }}
                                 </a>
+                            </div>
+
+                            <div class="text-center mt-8 pt-6 border-t border-gray-700">
+                                <div>
+                                    For sponsorship inquiries, please email us at <a href="mailto:info@kahitsan.com"
+                    class="text-gold-light hover:text-gold transition duration-300">info@kahitsan.com</a>
+                                </div>
                             </div>
                         </div>
                     </div>
