@@ -14,7 +14,7 @@ import {
   Plus,
   Sparkles,
   Dot,
-  UserCircle,
+  // UserCircle,
 } from 'lucide-react';
 
 import KAHITSAN_LOGO from './assets/logo.png';
