@@ -124,7 +124,7 @@ export default function App() {
       }}></div>
 
       {/* Header - Fixed on Desktop, Clean on Mobile */}
-      <header className={`${isMobile ? 'relative' : 'fixed top-0 left-0 right-0'} z-50 hud-glass border-b border-white/20`}>
+      <header className={`${isMobile ? 'relative' : 'fixed top-0 left-0 right-0'} z-50 hud-glass`} style={{borderRight: 'none', borderLeft: 'none', borderTop: 'none'}}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
@@ -650,7 +650,7 @@ export default function App() {
             isScrolling ? 'translate-y-full' : 'translate-y-0'
           }`}
         >
-          <div className="hud-glass border-t-2 border-white/20 px-1 py-3 relative">
+          <div className="hud-glass border-white/20 relative" style={{ borderBottom: 'none', borderLeft: 'none', borderRight: 'none' }}>
             <div className="flex items-center justify-around">
               {sections.map((section) => (
                 <MobileNavButton 

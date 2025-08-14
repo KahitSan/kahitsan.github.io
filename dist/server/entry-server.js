@@ -1,14 +1,13 @@
 import { jsxs, jsx } from "react/jsx-runtime";
 import { renderToString } from "react-dom/server";
 import { useState, useEffect } from "react";
-import { Video, Coffee, Plus, Dot, Zap, Shield, Sparkles, Building, Calendar, Code, Home, Facebook, Instagram, Users, UserCircle } from "lucide-react";
+import { Video, Coffee, Plus, Dot, Zap, Shield, Sparkles, Building, Calendar, Code, Home, Facebook, Instagram, Users } from "lucide-react";
 const KAHITSAN_LOGO = "/assets/logo-DwX9Dwwm.png";
 function App() {
   const [isMobile, setIsMobile] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
   const [isScrolling, setIsScrolling] = useState(false);
   const [scrollTimeout, setScrollTimeout] = useState(null);
-  const [showAccountMenu, setShowAccountMenu] = useState(false);
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
@@ -83,7 +82,7 @@ function App() {
         `,
       backgroundSize: "20px 20px"
     } }),
-    /* @__PURE__ */ jsx("header", { className: `${isMobile ? "relative" : "fixed top-0 left-0 right-0"} z-50 hud-glass border-b border-white/20`, children: /* @__PURE__ */ jsx("div", { className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8", children: /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-between h-16", children: [
+    /* @__PURE__ */ jsx("header", { className: `${isMobile ? "relative" : "fixed top-0 left-0 right-0"} z-50 hud-glass`, style: { borderRight: "none", borderLeft: "none", borderTop: "none" }, children: /* @__PURE__ */ jsx("div", { className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8", children: /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-between h-16", children: [
       /* @__PURE__ */ jsx("div", { className: "flex items-center gap-3", children: /* @__PURE__ */ jsx("div", { children: /* @__PURE__ */ jsx("img", { src: KAHITSAN_LOGO, alt: "KahitSan Management", className: "h-10 mr-2" }) }) }),
       /* @__PURE__ */ jsxs("div", { className: "hidden lg:flex items-center gap-2", children: [
         sections.map((section) => /* @__PURE__ */ jsxs(
@@ -541,7 +540,7 @@ function App() {
             {
               icon: /* @__PURE__ */ jsx(Facebook, { className: "w-6 h-6" }),
               label: "Facebook",
-              href: "#"
+              href: "https://www.facebook.com/KahitSan"
             }
           ),
           /* @__PURE__ */ jsx(
@@ -549,7 +548,7 @@ function App() {
             {
               icon: /* @__PURE__ */ jsx(Instagram, { className: "w-6 h-6" }),
               label: "Instagram",
-              href: "#"
+              href: "https://www.instagram.com/kahitsan_com/"
             }
           ),
           /* @__PURE__ */ jsx(
@@ -557,7 +556,7 @@ function App() {
             {
               icon: /* @__PURE__ */ jsx(Video, { className: "w-6 h-6" }),
               label: "TikTok",
-              href: "#"
+              href: "https://www.tiktok.com/@kahitsan21"
             }
           )
         ] })
@@ -579,59 +578,16 @@ function App() {
       "div",
       {
         className: `fixed bottom-0 left-0 right-0 z-50 md:hidden transition-transform duration-300 ${isScrolling ? "translate-y-full" : "translate-y-0"}`,
-        children: /* @__PURE__ */ jsxs("div", { className: "hud-glass border-t-2 border-white/20 px-1 py-3 relative", children: [
-          /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-around", children: [
-            sections.map((section) => /* @__PURE__ */ jsx(
-              MobileNavButton,
-              {
-                label: section.label,
-                icon: section.icon,
-                active: activeSection === section.id,
-                onClick: () => scrollToSection(section.id)
-              },
-              section.id
-            )),
-            /* @__PURE__ */ jsx(
-              MobileAccountButton,
-              {
-                active: showAccountMenu,
-                onClick: () => setShowAccountMenu(!showAccountMenu)
-              }
-            )
-          ] }),
-          showAccountMenu && /* @__PURE__ */ jsx("div", { className: "absolute bottom-full left-0 right-0 hud-glass border border-white/20 mx-2 mb-2 rounded-lg overflow-hidden", children: /* @__PURE__ */ jsxs("div", { className: "p-4 space-y-3", children: [
-            /* @__PURE__ */ jsxs("div", { className: "text-center mb-3", children: [
-              /* @__PURE__ */ jsx("h4", { className: "font-semibold text-sm", style: { color: "var(--ks-hud-text)" }, children: "Account Access" }),
-              /* @__PURE__ */ jsx("p", { className: "text-xs", style: { color: "var(--ks-hud-secondary)" }, children: "Sign in to book workspaces" })
-            ] }),
-            /* @__PURE__ */ jsx(
-              "button",
-              {
-                className: "w-full p-3 rounded border hud-scan-line text-center transition-all duration-200",
-                style: {
-                  backgroundColor: "transparent",
-                  borderColor: "rgba(201, 169, 97, 0.4)",
-                  color: "var(--ks-hud-primary)"
-                },
-                onClick: () => setShowAccountMenu(false),
-                children: /* @__PURE__ */ jsx("span", { className: "text-sm", children: "Login" })
-              }
-            ),
-            /* @__PURE__ */ jsx(
-              "button",
-              {
-                className: "w-full p-3 hud-clip-button hud-scan-line text-center transition-all duration-200",
-                style: {
-                  backgroundColor: "rgba(201, 169, 97, 0.2)",
-                  border: "1px solid var(--ks-hud-primary)",
-                  color: "var(--ks-hud-primary)"
-                },
-                onClick: () => setShowAccountMenu(false),
-                children: /* @__PURE__ */ jsx("span", { className: "text-sm", children: "Signup" })
-              }
-            )
-          ] }) })
-        ] })
+        children: /* @__PURE__ */ jsx("div", { className: "hud-glass border-white/20 relative", style: { borderBottom: "none", borderLeft: "none", borderRight: "none" }, children: /* @__PURE__ */ jsx("div", { className: "flex items-center justify-around", children: sections.map((section) => /* @__PURE__ */ jsx(
+          MobileNavButton,
+          {
+            label: section.label,
+            icon: section.icon,
+            active: activeSection === section.id,
+            onClick: () => scrollToSection(section.id)
+          },
+          section.id
+        )) }) })
       }
     ),
     /* @__PURE__ */ jsx(
@@ -949,36 +905,6 @@ function MobileNavButton({ label, icon, active = false, onClick }) {
           )
         ] }),
         /* @__PURE__ */ jsx("span", { className: "text-xs font-medium truncate w-full text-center", children: label }),
-        active && /* @__PURE__ */ jsx(
-          "div",
-          {
-            className: "w-4 h-0.5 rounded-full",
-            style: { backgroundColor: "var(--ks-hud-primary)" }
-          }
-        )
-      ]
-    }
-  );
-}
-function MobileAccountButton({ active, onClick }) {
-  return /* @__PURE__ */ jsxs(
-    "button",
-    {
-      onClick,
-      className: "flex flex-col items-center gap-1 p-2 transition-all duration-200 min-w-0 flex-1",
-      style: { color: active ? "var(--ks-hud-primary)" : "var(--ks-hud-secondary)" },
-      children: [
-        /* @__PURE__ */ jsxs("div", { className: "relative", children: [
-          /* @__PURE__ */ jsx("div", { className: "w-5 h-5 flex items-center justify-center", children: /* @__PURE__ */ jsx(UserCircle, { className: "w-5 h-5" }) }),
-          active && /* @__PURE__ */ jsx(
-            "div",
-            {
-              className: "absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 rounded-full",
-              style: { backgroundColor: "var(--ks-hud-primary)" }
-            }
-          )
-        ] }),
-        /* @__PURE__ */ jsx("span", { className: "text-xs font-medium truncate w-full text-center", children: "Account" }),
         active && /* @__PURE__ */ jsx(
           "div",
           {
