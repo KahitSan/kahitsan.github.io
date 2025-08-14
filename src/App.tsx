@@ -606,17 +606,17 @@ export default function App() {
               <SocialButton
                 icon={<Facebook className="w-6 h-6" />}
                 label="Facebook"
-                href="#"
+                href="https://www.facebook.com/KahitSan"
               />
               <SocialButton
                 icon={<Instagram className="w-6 h-6" />}
                 label="Instagram"
-                href="#"
+                href="https://www.instagram.com/kahitsan_com/"
               />
               <SocialButton
                 icon={<Video className="w-6 h-6" />}
                 label="TikTok"
-                href="#"
+                href="https://www.tiktok.com/@kahitsan21"
               />
             </div>
           </div>
@@ -663,10 +663,10 @@ export default function App() {
               ))}
               
               {/* Account Section */}
-              <MobileAccountButton 
+              {/* <MobileAccountButton 
                 active={showAccountMenu}
                 onClick={() => setShowAccountMenu(!showAccountMenu)}
-              />
+              /> */}
             </div>
 
             {/* Account Menu Overlay */}
