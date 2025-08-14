@@ -670,7 +670,7 @@ export default function App() {
             </div>
 
             {/* Account Menu Overlay */}
-            {showAccountMenu && (
+            {/* {showAccountMenu && (
               <div className="absolute bottom-full left-0 right-0 hud-glass border border-white/20 mx-2 mb-2 rounded-lg overflow-hidden">
                 <div className="p-4 space-y-3">
                   <div className="text-center mb-3">
@@ -707,7 +707,7 @@ export default function App() {
                   </button>
                 </div>
               </div>
-            )}
+            )} */}
           </div>
         </div>
       )}
