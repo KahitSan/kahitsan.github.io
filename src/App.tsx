@@ -25,7 +25,7 @@ export default function App() {
   const [activeSection, setActiveSection] = useState('hero');
   const [isScrolling, setIsScrolling] = useState(false);
   const [scrollTimeout, setScrollTimeout] = useState<NodeJS.Timeout | null>(null);
-  const [showAccountMenu, setShowAccountMenu] = useState(false);
+  // const [showAccountMenu, setShowAccountMenu] = useState(false);
 
   useEffect(() => {
     const checkMobile = () => {
