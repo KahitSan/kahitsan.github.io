@@ -1,4 +1,4 @@
-name: Deploy Eleventy to GitHub Pages
+name: Deploy React SSG to GitHub Pages
 
 on:
   push:
@@ -14,10 +14,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'npm'
@@ -25,27 +25,29 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Install Tailwind CLI
-        run: |
-          npm install -D tailwindcss @tailwindcss/cli
-
-      - name: Build the site
+      # Build runs: tsc -b && build:client && build:server && generate
+      - name: Build React (Client + SSR + Generate)
         run: npm run build
 
-      - name: Add .nojekyll file to disable Jekyll on GitHub Pages
-        run: echo "" > ./_site/.nojekyll
+      # Optional: add 404.html for SPA-ish routing on GitHub Pages
+      - name: Add 404.html (SPA fallback)
+        run: cp dist/client/index.html dist/client/404.html
 
-      - name: Create Netlify-style _headers file for asset caching
+      # Disable Jekyll so asset paths are not mangled
+      - name: Disable Jekyll
+        run: echo "" > dist/client/.nojekyll
+
+      # Optional: Netlify-style _headers for caching (kept for parity)
+      - name: Create _headers for asset caching
         run: |
-          mkdir -p ./_site
-          echo "/assets/*" > ./_site/_headers
-          echo "  Cache-Control: public, max-age=31536000, immutable" >> ./_site/_headers
-          echo "/css/*" >> ./_site/_headers
-          echo "  Cache-Control: public, max-age=31536000, immutable" >> ./_site/_headers
+          echo "/assets/*" > dist/client/_headers
+          echo "  Cache-Control: public, max-age=31536000, immutable" >> dist/client/_headers
+          echo "/css/*" >> dist/client/_headers
+          echo "  Cache-Control: public, max-age=31536000, immutable" >> dist/client/_headers
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_site
+          publish_dir: dist/client
           publish_branch: gh-pages
