@@ -1144,10 +1144,10 @@ function MobileNavButton({ label, icon, active = false, onClick }: MobileNavButt
   );
 }
 
-interface MobileAccountButtonProps {
-  active: boolean;
-  onClick: () => void;
-}
+// interface MobileAccountButtonProps {
+//   active: boolean;
+//   onClick: () => void;
+// }
 
 // function MobileAccountButton({ active, onClick }: MobileAccountButtonProps) {
 //   return (
