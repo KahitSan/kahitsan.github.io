@@ -1149,31 +1149,31 @@ interface MobileAccountButtonProps {
   onClick: () => void;
 }
 
-function MobileAccountButton({ active, onClick }: MobileAccountButtonProps) {
-  return (
-    <button 
-      onClick={onClick}
-      className="flex flex-col items-center gap-1 p-2 transition-all duration-200 min-w-0 flex-1"
-      style={{ color: active ? 'var(--ks-hud-primary)' : 'var(--ks-hud-secondary)' }}
-    >
-      <div className="relative">
-        <div className="w-5 h-5 flex items-center justify-center">
-          <UserCircle className="w-5 h-5" />
-        </div>
-        {active && (
-          <div 
-            className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 rounded-full"
-            style={{ backgroundColor: 'var(--ks-hud-primary)' }}
-          />
-        )}
-      </div>
-      <span className="text-xs font-medium truncate w-full text-center">Account</span>
-      {active && (
-        <div 
-          className="w-4 h-0.5 rounded-full"
-          style={{ backgroundColor: 'var(--ks-hud-primary)' }}
-        />
-      )}
-    </button>
-  );
-}
+// function MobileAccountButton({ active, onClick }: MobileAccountButtonProps) {
+//   return (
+//     <button 
+//       onClick={onClick}
+//       className="flex flex-col items-center gap-1 p-2 transition-all duration-200 min-w-0 flex-1"
+//       style={{ color: active ? 'var(--ks-hud-primary)' : 'var(--ks-hud-secondary)' }}
+//     >
+//       <div className="relative">
+//         <div className="w-5 h-5 flex items-center justify-center">
+//           <UserCircle className="w-5 h-5" />
+//         </div>
+//         {active && (
+//           <div 
+//             className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 rounded-full"
+//             style={{ backgroundColor: 'var(--ks-hud-primary)' }}
+//           />
+//         )}
+//       </div>
+//       <span className="text-xs font-medium truncate w-full text-center">Account</span>
+//       {active && (
+//         <div 
+//           className="w-4 h-0.5 rounded-full"
+//           style={{ backgroundColor: 'var(--ks-hud-primary)' }}
+//         />
+//       )}
+//     </button>
+//   );
+// }
