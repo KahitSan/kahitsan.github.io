@@ -77,7 +77,7 @@ export default function App() {
       // Set new timeout to hide scrolling state
       const newTimeout = setTimeout(() => {
         setIsScrolling(false);
-      }, 1500); // Hide after 1.5 seconds of no scrolling
+      }, 500); // Hide after 1.5 seconds of no scrolling
       
       setScrollTimeout(newTimeout);
     };
@@ -130,7 +130,7 @@ export default function App() {
             {/* Logo */}
             <div className="flex items-center gap-3">
               <div>
-                <img src={KAHITSAN_LOGO} alt="KahitSan Management" className="h-10 mr-2" />
+                <img src={KAHITSAN_LOGO} alt="KahitSan Solutions Corp" className="h-10 mr-2" />
               </div>
             </div>
 
@@ -270,8 +270,7 @@ export default function App() {
                 color: 'var(--ks-hud-secondary)',
                 textShadow: '0 1px 5px rgba(0, 0, 0, 0.3)'
               }}>
-              Your comfy study tambayan. KahitSan man 
-              pinagsasalitaan mo.
+              Your comfy study tambayan. KahitSan man pinanggalingan mo.
             </p>
           </div>
         </section>
